@@ -12,9 +12,8 @@ The publication will be made available soon.
 
 <p align="center" width="100%">
     <img width="100%" src="./img/xray_vs_vfa.jpg"> 
+    <em>Comparison of Imaging Equipment and characteristics for Spine Radiograph and DXA VFA</em>
 </p>
-
-*Comparison of Imaging Equipment and characteristics for Spine Radiograph and DXA VFA*
 
 
 ### Image processing
@@ -29,9 +28,8 @@ In our study, the model was fine-tuned using approximately 30% of the VFA datase
 
 <p align="center" width="100%">
     <img width="100%" src="./img/fine-tuning.png"> 
+    <em>The transfer learning architecture for training the VFA VERTE-X model. Abbreviations: VFA, vertebral fracture assessment; pVF score, deep learning-based score to identify prevalent vertebral fracture; osteo score, deep learning-based score to identify presence of osteoporosis.</em>
 </p>
-
-*The transfer learning architecture for training the VFA VERTE-X model. Abbreviations: VFA, vertebral fracture assessment; pVF score, deep learning-based score to identify prevalent vertebral fracture; osteo score, deep learning-based score to identify presence of osteoporosis.*
 
 ## 10 April 2023: Deep‐Learning‐Based Detection of Vertebral Fracture and Osteoporosis Using Lateral Spine X‐Ray Radiography
 
