@@ -11,6 +11,7 @@ The publication will be made available soon.
 ### X-ray vs. DXA VFA
 
 ![xray_vs_vfa](./img/xray_vs_vfa.jpg)
+
 *Comparison of Imaging Equipment and characteristics for Spine Radiograph and DXA VFA*
 
 
@@ -25,6 +26,7 @@ Data augmentation techniques, such as Gaussian noise addition, rotation, and sca
 In our study, the model was fine-tuned using approximately 30% of the VFA dataset, which was selected through random stratified sampling. This approach allowed the model to leverage the generalizable features learned from the large X-ray dataset and adapt them to the smaller VFA dataset.
 
 ![Transfer learning](./img/fine-tuning.png)
+
 *The transfer learning architecture for training the VFA VERTE-X model. Abbreviations: VFA, vertebral fracture assessment; pVF score, deep learning-based score to identify prevalent vertebral fracture; osteo score, deep learning-based score to identify presence of osteoporosis.*
 
 ## 10 April 2023: Deep‐Learning‐Based Detection of Vertebral Fracture and Osteoporosis Using Lateral Spine X‐Ray Radiography
@@ -32,6 +34,8 @@ In our study, the model was fine-tuned using approximately 30% of the VFA datase
 We propose a deep learning method for detecting prevalent vertebral factrures and osteoporosis on X-ray images: given an X-ray input image and clinical variables(Age, Sex, BMI), our model provides the risk scores of diseases. 
 
 For more detail, please check our [**Paper**](https://academic.oup.com/jbmr/article/38/6/887/7512425?login=false)!
+
+*Namki Hong, Sang Wouk Cho, Sungjae Shin, Seunghyun Lee, Seol A Jang, Seunghyun Roh, Young Han Lee, Yumie Rhee, Steven R. Cummings, Hwiyoung Kim, Kyoung Min Kim, Deep‐Learning‐Based Detection of Vertebral Fracture and Osteoporosis Using Lateral Spine X‐Ray Radiography, Journal of Bone and Mineral Research, Volume 38, Issue 6, 1 June 2023, Pages 887–895, https://doi.org/10.1002/jbmr.4814*
 
 ### Image processing
 Because of the intensity difference in individual images, histogram equalization was applied to all images, and Minmax scaling was selected as a normalization method to indicate the relative degree of intensity in the images. 
