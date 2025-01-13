@@ -1,14 +1,31 @@
 # YUHS-VERTE-X
 
+Code for "Deep‐Learning‐Based Detection of Vertebral Fracture and Osteoporosis Using Lateral Spine X‐Ray Radiography" and "Deep learning-based identification of vertebral fracture and osteoporosis in lateral spine radiographs and DXA VFA to predict incident fracture". 
+
 ## 12 Jan 2025: Deep learning-based identification of vertebral fracture and osteoporosis in lateral spine radiographs and DXA VFA to predict incident fracture
 
-We believe that deep learning (DL) identification of vertebral fractures and osteoporosis in lateral spine radiographs and DXA vertebral fracture assessment (VFA) images may improve fracture risk assessment in older adults.
+We investigated the prognostic value of deep learning scores to detect vertebral fracture and osteoporosis for future incident fracture in lateral spine radiographs and DXA VFA in hospital-based population and community-based older adults. The improvement of discriminatory ability and clinical utility by adding deep learning scores upon models of clinical risk factors was evaluated. The feasibility of transfer learning of CNN models from different spine image domains was tested. The pre-trained DL models from lateral spine radiographs were then fine-tuned in 30% of a DXA VFA dataset (KURE cohort), with performance evaluated in the remaining 70% test set.
 
-The pre-trained DL models from lateral spine radiographs were then fine-tuned in 30% of a DXA VFA dataset (KURE cohort), with performance evaluated in the remaining 70% test set.
+The publication will be made available soon.
+
+### X-ray vs. DXA VFA
+
+![xray_vs_vfa](./img/xray_vs_vfa.jpg)
+*Comparison of Imaging Equipment and characteristics for Spine Radiograph and DXA VFA*
+
 
 ### Image processing
 
 Histogram equalization was applied to all images due to heterogeneous intensity distribution in images. Min-max scaling was used to normalize the intensity values. As lateral spine radiographs and DXA VFA images differ in resolution sizes, the width was resized to 512 pixels for spine radiographs, along with proportional height adjustment to maintain the original aspect ratio in the images. For DXA VFA images, where the height consistently exceeds the width, the height was resized to 1024 pixels, and the width was scaled accordingly. Images smaller than the target size (1024 × 512) were centered, with zero-padding applied to fill the remaining areas. For the image resolution, the maximum usable image resolution is limited to 1024x1024 in general settings due to hardware constraints during model training. While resizing images to meet this resolution, loss of some information was inevitable. However, the morphological features of spine were preserved during the downscaling of large images such as spine radiographs. This resizing process reduced the image quality differences related to manufacturers or image acquisition time, which helped models to focus on learning clinically relevant structural and morphological features.
+
+### Data augmentation
+Data augmentation techniques, such as Gaussian noise addition, rotation, and scaling were applied to augment the images as training resource. These augmentations increased the difficulty of the learning process, even for high-quality medical images, facilitating models to learn features that are robust to noises and artifacts. As a result, the models would become less reliant on variable visual features associated with manufacturers or data collection time.
+
+### Transfer learning
+In our study, the model was fine-tuned using approximately 30% of the VFA dataset, which was selected through random stratified sampling. This approach allowed the model to leverage the generalizable features learned from the large X-ray dataset and adapt them to the smaller VFA dataset.
+
+![Transfer learning](./img/fine-tuning.png)
+*The transfer learning architecture for training the VFA VERTE-X model. Abbreviations: VFA, vertebral fracture assessment; pVF score, deep learning-based score to identify prevalent vertebral fracture; osteo score, deep learning-based score to identify presence of osteoporosis.*
 
 ## 10 April 2023: Deep‐Learning‐Based Detection of Vertebral Fracture and Osteoporosis Using Lateral Spine X‐Ray Radiography
 
