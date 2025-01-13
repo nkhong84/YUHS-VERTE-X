@@ -6,11 +6,10 @@ def test_score(batch_te, device, model, args):
     pred_labels = []
     pid_labels = []
 
-    for j, (x_te,c_te,label) in enumerate(batch_te):
+    for j, (x_te,label) in enumerate(batch_te):
         x_te = x_te.to(device)
-        c_te = c_te.to(device).float()
 
-        pred_te = model(x_te,c_te)
+        pred_te = model(x_te)
 
         pid_labels.extend(label)
         pred_labels.extend(pred_te.cpu().detach().numpy())

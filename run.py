@@ -8,6 +8,7 @@ from .model import load_model
 from .model.core import test_score
 
 from .utils.data_loader import load_dataloader
+from .utils.config import ParserArguments
 
 from collections import defaultdict
 import torch
@@ -22,36 +23,28 @@ from tqdm import tqdm
 
 warnings.filterwarnings(action='ignore')
 
-torch.backends.cudnn.benchmark = True
-
-# Seed
-RANDOM_SEED = 1111
-torch.manual_seed(RANDOM_SEED)
-torch.cuda.manual_seed(RANDOM_SEED)
-np.random.seed(RANDOM_SEED)
-random.seed(RANDOM_SEED)
-
-
 def main(args):
-    
-    # Argument
-    args.stype = "osteoporosis"
-    args.exp_pth = "exp"
-
+   # If the resume argument is provided, load the latest pre-trained model
     if args.resume != None:
+        # Find all .pth files in the specified experiment folder and sort them
         resume = sorted(glob(f"{exp_folder}/{stype}/*.pth"))[-1]
-        args.resume = resume
+        args.resume = resume  # Set the most recent model checkpoint to args.resume
 
-    # GPU setting
+    # GPU setting: Use the specified GPU if available; otherwise, fallback to CPU
     device = torch.device(f'cuda:{args.gpu_id}' if torch.cuda.is_available() else 'cpu')
-    # dataloader
+
+    # Data loader: Initialize the data loader based on the provided arguments
     dataloader = load_dataloader(args)
 
-    # Model
-    model = load_model(args,device)
+    # Model loading: Initialize the model and load any pre-trained weights if specified
+    model = load_model(args, device)
 
-    res = test_score(dataloader, device, model, args)
-    
+    # Model testing: Evaluate the model using the test dataset and return the results
+    results = test_score(dataloader, device, model, args)
+
+    # Final result
+    # "The final results are stored as a dictionary, which can be processed using pandas or other tools as desired."
+
 
 if __name__ == '__main__':
     main()
